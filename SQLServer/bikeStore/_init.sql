@@ -83,7 +83,7 @@ GO
 CREATE TABLE Ordeer(
     orderId INT PRIMARY KEY IDENTITY(1,1),
     customerId INT,
-    orderStatus INT NOT NULL,
+    orderStatus INT NOT NULL, --1.Pending, 2.Processing, 3.Rejected, 4.Completed
     orderDate DATE NOT NULL,
     requiredDate DATE NOT NULL,
     shippedDate DATE,
