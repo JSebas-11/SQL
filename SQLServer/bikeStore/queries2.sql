@@ -1,4 +1,4 @@
---Ejercicio 1: Concatenar fistName and LasName en una sola columna y mostrar su tamaño.
+--Ejercicio 1: Concatenar fistName and LasName en una sola columna y mostrar su tamaï¿½o.
 SELECT fullName, LEN(fullName)-1 AS lenName 
 FROM
 	(SELECT CONCAT_WS(' ', firstName, lastName) AS fullName FROM Customer) sub;
@@ -6,7 +6,7 @@ FROM
 --Ejercicio 2: Mostrar los productos con un precio superior a 999.99.
 SELECT * FROM Product WHERE price > 999.99;
 
---Ejercicio 3: Mostrar el nombre de la tienda y su ciudad, ordenados alfabéticamente por ciudad.
+--Ejercicio 3: Mostrar el nombre de la tienda y su ciudad, ordenados alfabï¿½ticamente por ciudad.
 SELECT city, storeName FROM Store
 ORDER BY city ASC, storeName ASC;
 
@@ -24,15 +24,15 @@ WHERE br.brandName = 'Trek';
 SELECT * FROM Ordeer
 WHERE shippedDate BETWEEN '2016-06-01' AND '2016-12-31';
 
---Ejercicio 7: Obtener los 5 productos más caros en la tienda.
+--Ejercicio 7: Obtener los 5 productos mï¿½s caros en la tienda.
 SELECT TOP(5) * FROM Product
 ORDER BY price DESC;
 
---Ejercicio 8: Obtener los últimos 10 clientes registrados según su customerId, ordenados de más reciente a más antiguo.
+--Ejercicio 8: Obtener los ï¿½ltimos 10 clientes registrados segï¿½n su customerId, ordenados de mï¿½s reciente a mï¿½s antiguo.
 SELECT TOP(10) * FROM Customer
 ORDER BY customerId DESC;
 
---Ejercicio 9: Encontrar los correos electrónicos gmail en la tabla Customer.
+--Ejercicio 9: Encontrar los correos electrï¿½nicos gmail en la tabla Customer.
 SELECT * FROM Customer
 WHERE email LIKE '%@gmail%';
 
@@ -54,7 +54,7 @@ SELECT AVG(price) AS totalAvg FROM Product;
 SELECT TOP(1) *, price - (price*discount) AS FinalPrice FROM OrderItem
 ORDER BY FinalPrice ASC;
 
---Ejercicio 14: Mostrar cuántos productos hay en cada categoría.
+--Ejercicio 14: Mostrar cuï¿½ntos productos hay en cada categorï¿½a.
 
 SELECT cat.categoryName, SUM(sto.quantity) AS Amount
 FROM Product prod
@@ -62,7 +62,7 @@ INNER JOIN Stock sto ON prod.productId = sto.productId
 INNER JOIN Category cat ON prod.categoryId = cat.categoryId
 GROUP BY cat.categoryName;
 
---Ejercicio 15: Mostrar cuántos pedidos ha realizado cada cliente, ordenados de mayor a menor.
+--Ejercicio 15: Mostrar cuï¿½ntos pedidos ha realizado cada cliente, ordenados de mayor a menor.
 SELECT fullName, COUNT(orderId) AS orders
 FROM 
 	(SELECT cus.customerId, CONCAT_WS(' ', cus.firstName, cus.lastName) AS fullName, ord.orderId
